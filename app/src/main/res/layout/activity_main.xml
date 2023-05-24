@@ -119,10 +119,10 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
+        android:layout_marginTop="28dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginBottom="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/enter"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.487"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/gridLayout"
         tools:ignore="MissingConstraints">
@@ -148,31 +148,43 @@
             android:text="/" />
     </LinearLayout>
 
-    <Button
-        android:id="@+id/enter"
-        style="@style/NumberButton"
-        android:layout_width="163dp"
-        android:layout_height="70dp"
-        android:layout_marginEnd="28dp"
-        android:layout_marginBottom="114dp"
-        android:text="="
-        app:layout_constraintBottom_toBottomOf="parent"
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="50dp"
+        android:paddingLeft="100dp"
+        android:layout_marginEnd="20dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.487"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints">
 
-    <Button
-        android:id="@+id/clear"
-        style="@style/NumberButton"
-        android:layout_width="79dp"
-        android:layout_height="69dp"
-        android:layout_marginEnd="224dp"
-        android:layout_marginBottom="114dp"
-        android:text="C"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-        app:layout_constraintVertical_bias="0.907" />
+        <Button
+            android:id="@+id/clear"
+            style="@style/NumberButton"
+            android:layout_width="79dp"
+            android:layout_height="69dp"
+            android:text="C"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+            app:layout_constraintVertical_bias="0.907" />
+
+        <Button
+            android:id="@+id/enter"
+            style="@style/NumberButton"
+            android:layout_width="163dp"
+            android:layout_height="70dp"
+            android:text="="
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+            tools:ignore="MissingConstraints" />
+
+
+    </LinearLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
