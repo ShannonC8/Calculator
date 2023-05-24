@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="16dp"
+        android:text="Calculator"
+        android:textSize="50dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/equation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginBottom="120dp"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/gridLayout"
+        app:layout_constraintStart_toStartOf="@+id/textView"
+        app:layout_constraintTop_toTopOf="parent"></TextView>
+
+    <TextView
+        android:id="@+id/answer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.12"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.23" />
+
+    <GridLayout
+        android:id="@+id/gridLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="55dp"
+        android:columnCount="4"
+        android:rowCount="2"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/equation"
+        tools:ignore="MissingConstraints">
+
+        <Button
+            android:id="@+id/one"
+            style="@style/NumberButton"
+            android:text="1" />
+
+        <Button
+            android:id="@+id/two"
+            style="@style/NumberButton"
+            android:text="2" />
+
+        <Button
+            android:id="@+id/three"
+            style="@style/NumberButton"
+            android:layout_row="0"
+            android:layout_column="2"
+            android:text="3" />
+
+        <Button
+            android:id="@+id/four"
+            style="@style/NumberButton"
+            android:text="4" />
+
+        <Button
+            android:id="@+id/five"
+            style="@style/NumberButton"
+            android:text="5" />
+
+        <Button
+            android:id="@+id/six"
+            style="@style/NumberButton"
+            android:text="6" />
+
+        <Button
+            android:id="@+id/seven"
+            style="@style/NumberButton"
+            android:text="7" />
+
+        <Button
+            android:id="@+id/eight"
+            style="@style/NumberButton"
+            android:text="8" />
+
+        <Button
+            android:id="@+id/nine"
+            style="@style/NumberButton"
+            android:text="9" />
+
+        <Button
+            android:id="@+id/zero"
+            style="@style/NumberButton"
+            android:text="0" />
+    </GridLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/enter"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/gridLayout"
+        tools:ignore="MissingConstraints">
+
+        <Button
+            android:id="@+id/add"
+            style="@style/NumberButton"
+            android:text="+" />
+
+        <Button
+            android:id="@+id/subtract"
+            style="@style/NumberButton"
+            android:text="-" />
+
+        <Button
+            android:id="@+id/multiply"
+            style="@style/NumberButton"
+            android:text="x" />
+
+        <Button
+            android:id="@+id/divide"
+            style="@style/NumberButton"
+            android:text="/" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/enter"
+        style="@style/NumberButton"
+        android:layout_width="163dp"
+        android:layout_height="70dp"
+        android:layout_marginEnd="28dp"
+        android:layout_marginBottom="114dp"
+        android:text="="
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        tools:ignore="MissingConstraints" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
