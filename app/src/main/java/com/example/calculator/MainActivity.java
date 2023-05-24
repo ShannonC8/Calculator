@@ -12,7 +12,7 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    Button add, subtract, multiply, divide, enter,
+    Button add, subtract, multiply, divide, enter, clear,
             one, two, three, four, five, six, seven, eight, nine, zero;
 
     TextView answer, equation;
@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
      * intializes all the buttons
      */
     public void initializeButton() {
+        clear = findViewById(R.id.clear);
         enter = findViewById(R.id.enter);
         add = findViewById(R.id.add);
         subtract = findViewById(R.id.subtract);
@@ -45,6 +46,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         nine = findViewById(R.id.nine);
         zero = findViewById(R.id.zero);
 
+        clear.setOnClickListener(this);
         enter.setOnClickListener(this);
         add.setOnClickListener(this);
         subtract.setOnClickListener(this);
@@ -69,27 +71,29 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
      * @return the correct answer as decimal
      */
     public static double Calculate(String input) {
-        String strArray[] = input.split(" ");
-        ArrayList<String> operations = new ArrayList<>();
-        for(int i = 0; i < strArray.length; i++) {
-            if(strArray[i].equals("x") || strArray[i].equals("/")) {
-                String num; //number that if the answer
+        String strArray[] = input.split(" "); //the string as an array
+        ArrayList<String> operations = new ArrayList<>(); //the new equation only + and - (order operation)
+        for(int i = 0; i < strArray.length; i++) { //loops through each element (number, operation)
+            if(strArray[i].equals("x") || strArray[i].equals("/")) { //if is multiply of divide
+                String num; //number that is the answer
                 if(strArray[i].equals("x")) { //if multiplying
-                    num = Double.parseDouble(operations.get(operations.size()-1)) * Double.parseDouble(strArray[i+1]) + "";
+                    //performs the operation
+                    num = Double.parseDouble(operations.get(operations.size()-1))
+                            * Double.parseDouble(strArray[i+1]) + "";
                 } else { //if dividing
-                    num = Double.parseDouble(operations.get(operations.size()-1)) /  Double.parseDouble(strArray[i+1]) + "";
-                    System.out.println(num);
+                    //performs the operation
+                    num = Double.parseDouble(operations.get(operations.size()-1))
+                            /  Double.parseDouble(strArray[i+1]) + "";
                 }
-                i++; //skip the next number
-                operations.remove(operations.size()-1);
-                operations.add(num);
+                i++; //skip the next number because already performed operation
+                operations.remove(operations.size()-1); //remove last num because performed operation
+                operations.add(num); //add calculated answer to arraylist
             }
             else { //otherwise simply add the operation/number
                 operations.add(strArray[i]);
             }
         }
-        System.out.println(operations);
-        double num = Integer.parseInt(operations.get(0));
+        double num = Integer.parseInt(operations.get(0));//the first number
         //calculates the answer
         //loop through the string but only odds because that is what the operations are
         for(int i = 1; i < operations.size(); i+=2) {
@@ -108,16 +112,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         String buttonText = button.getText().toString();
         String equationStr = equation.getText().toString();
 
-        if(buttonText.equals("=")) {
+        if(buttonText.equals("=")) { //when we sense the equals button is pressed
             double answerStr = Calculate(equation.getText().toString());
             answer.setText(answerStr + "");
-        } else {
-            try {
-                Integer.parseInt(buttonText);
-                equation.setText(equationStr + buttonText);
-            } catch (Exception e) {
-                equation.setText(equationStr + " " + buttonText + " ");
+        } else if(buttonText.equals("C")) {
+            equation.setText("");
+            answer.setText("");
+        }else {
+                try {
+                    Integer.parseInt(buttonText);
+                    equation.setText(equationStr + buttonText);
+                } catch (Exception e) {
+                    equation.setText(equationStr + " " + buttonText + " ");
+                }
             }
-        }
+
     }
 }
