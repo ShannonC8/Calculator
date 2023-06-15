@@ -93,7 +93,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 operations.add(strArray[i]);
             }
         }
-        double num = Integer.parseInt(operations.get(0));//the first number
+        double num = Double.parseDouble(operations.get(0));//the first number
         //calculates the answer
         //loop through the string but only odds because that is what the operations are
         for(int i = 1; i < operations.size(); i+=2) {
